@@ -1,0 +1,6 @@
+.input {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
