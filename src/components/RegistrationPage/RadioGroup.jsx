@@ -1,20 +1,18 @@
 import React from 'react';
 import {Field} from 'formik';
+import css from './registrationPage.module.css'
 
 export const RadioGroup = () => {
     return (
-        <div role="group" aria-labelledby="my-radio-group">
-            <label>
-              <Field type="radio" name="picked" value="Women" />
-              Женщина
+        <div className={css.gender}> Пол
+            <label className={css.radiogroup}>
+              <Field type="radio" name="gender" value="Female"/>
+              Женский
             </label>
-            <label>
-              <Field type="radio" name="picked" value="Man" />
-              Мужчина
+            <label  className={css.radiogroup}>
+              <Field type="radio" name="gender" value="Male" />
+              Мужской
             </label>
         </div>
     )
-
-          
-    
 }

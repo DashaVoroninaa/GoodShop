@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from 'yup'
+import { useSelector } from "react-redux/es/exports";
+import { GoodsSelectors } from "components/store";
 
 export const LoginPage = () => {
+  const isAuth = useSelector(GoodsSelectors.getAuth);
+
   const logValidate = yup.object().shape({
     login: yup.string().required('Обязательно'),
     password: yup.string().required('Обязательно'),
@@ -10,6 +14,10 @@ export const LoginPage = () => {
 
   return (
     <div>
+      {isAuth ? (
+        <button>exid</button>
+      ) : (
+        <div>
       <Formik
       initialValues = {{
         login: '',
@@ -56,6 +64,8 @@ export const LoginPage = () => {
 
       
       </Formik>
+    </div>
+      )}
     </div>
   )
 }
