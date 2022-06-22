@@ -1,5 +1,5 @@
 import css from './footer.module.css'
-import {getGoods} from 'components/api/api'
+import { getGoods } from 'api'
 import { useEffect, useState } from 'react'
 
 export const Footer = () => {

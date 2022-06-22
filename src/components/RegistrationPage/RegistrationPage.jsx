@@ -3,11 +3,12 @@ import {Formik, Field, ErrorMessage} from "formik";
 import * as yup from 'yup'
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import css from './registrationPage.module.css'
 import { MyTextField } from "./MyTextField";
 import { RadioGroup } from "./RadioGroup";
-import { authAction } from "../store";
+import { authAction } from "../../store";
 
 export const Registration = () => {
     
@@ -20,11 +21,14 @@ export const Registration = () => {
         password: yup.string().required('Обязательно').min(6, 'Должно быть не менее шести символов'),
         confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли не совпадают').required('Обязательно'),
         email: yup.string().email('Введите корректный email').required('Обязательно'),
-        bornAt: yup.string().required('Обязательно')
+        bornAt: yup.date().required('Обязательно')
     })
+
+    const navigate = useNavigate()
 
     const handleSubmit = () => {
         checkAuth();
+        navigate('/')
     };
 
     return (

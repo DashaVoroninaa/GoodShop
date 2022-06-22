@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { Header } from "./StartPage/Header"
 import { Footer } from "./StartPage/Footer"
 import { useSelector } from "react-redux"
-import { GoodsSelectors } from "./store";
+import { GoodsSelectors } from "../store";
 import './style.css'
 
 export function App () {
@@ -14,10 +14,10 @@ export function App () {
     <>
       <Header/>
       <Routes>
-        <Route path='/' element={<MainPage/> }/>
-        <Route path='/login' element={<LoginPage/>}/>
-        {isAuth && <Navigate to="/" replace={true} />}
-        <Route path="/regestration" element={<Registration/>}/>
+        <Route path='/' exact element={<MainPage/> }/>
+        {!isAuth && <Route path='/login' exact element={<LoginPage/>}/>}
+        
+        <Route path="/regestration" exact element={<Registration/>}/>
       </Routes> 
       <Footer/>
         </>
