@@ -1,0 +1,27 @@
+img {
+    width: 220px;
+}
+
+.container{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #939393;
+    border-radius: 8px;
+}
+
+.card {
+    display: inline-block;
+    margin: 5px 15px 0 15px;
+    font-size: 13px;
+}
