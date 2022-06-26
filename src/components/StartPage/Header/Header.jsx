@@ -1,15 +1,12 @@
 import css from './header.module.css'
 import {ShoppingOutlined, UserOutlined} from '@ant-design/icons'
 import { Link } from "react-router-dom"
-import { GoodsSelectors } from 'store'
+import { GoodsSelectors } from 'store/registrationSlice'
 import { useSelector } from 'react-redux'
-
 
 export const Header = () => {
     const isAuth = useSelector(GoodsSelectors.getAuth);
 
-    
-    
     return (
         <header className={css.wrapper}>
             <Link to={'/'}>
@@ -22,12 +19,11 @@ export const Header = () => {
                         <Link to={'/'}>
                             <button>exid</button>
                         </Link>
-                        
                         <ShoppingOutlined />
                     </div>
                 ) : (
                     <Link to={'/login'}>
-                        <UserOutlined />
+                        <span>Log in</span>
                     </Link>
                 )}
             </div>

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import css from './registrationPage.module.css'
 import { MyTextField } from "./MyTextField";
 import { RadioGroup } from "./RadioGroup";
-import { authAction } from "../../store";
+import { authAction } from "store/registrationSlice";
 
 export const Registration = () => {
     
