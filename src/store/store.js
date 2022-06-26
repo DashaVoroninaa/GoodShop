@@ -4,8 +4,8 @@ import { reducer as registrationReducer } from "./registrationSlice/registration
 import {reducer as popularCategoriesReducer} from './popularCategorySlice/popularCategorySlice'
 
 const rootReducer = combineReducers({
-  registrationReducer,
-  popularCategoriesReducer,
+  registration: registrationReducer,
+  popularCategories: popularCategoriesReducer,
 });
 
 export const store = configureStore({

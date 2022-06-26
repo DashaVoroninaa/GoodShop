@@ -1,14 +1,15 @@
 import { createSlice, createAsyncThunk  } from "@reduxjs/toolkit";
 import { getPopularCategories } from "api";
 import { LOAD_STATUSES } from "store/constants";
+import { POPULAR_CATEGORIES } from "store/constants";
 
-export const fetchPopularCategories = createAsyncThunk('popularCategories/getPopularCategories', async () => {
+export const fetchPopularCategories = createAsyncThunk(`${POPULAR_CATEGORIES}/getPopularCategories`, async () => {
     const popularCategories = await getPopularCategories()
     return popularCategories
 })
 
 export const {actions, reducer} = createSlice ({
-    name: 'popularCategories',
+    name: POPULAR_CATEGORIES,
     initialState: {
         data: [],
         loadStatus: LOAD_STATUSES.UNKNOWN,

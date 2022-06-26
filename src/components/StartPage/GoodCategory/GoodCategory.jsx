@@ -23,21 +23,25 @@ export const GoodCategory = () => {
 
     return (
         <div>
+            <h3>Популярные категории:</h3>
             {isLoading && <Loader/>}
             {isError && <span>ой</span>}
             {isLoaded && (<div>
                 {popularCategories.map((i) => {
                 return(
                     <div>
-                        <div>{i.category.label}</div>
-                    {i.items.slice(0, 9).map((item) => (
-                        <Card
-                            hoverable
-                            style={{width: 250,}}
-                            cover={<img  alt="example" src={item.img} className={css.img}/>}>
-                            <Meta title={item.label} description={item.price} />
-                        </Card>
-                    ))}
+                        <h4>{i.category.label}</h4>
+                        <div className={css.container}>
+                        {i.items.map((item) => (
+                            <Card 
+                            className={css.card}
+                                hoverable
+                                style={{width: 200,}}
+                                cover={<img  alt="example" src={item.img}/>}>
+                                <Meta title={item.label} description={item.price} />
+                            </Card>
+                        ))}
+                        </div>
                     </div>
                 )
             })}

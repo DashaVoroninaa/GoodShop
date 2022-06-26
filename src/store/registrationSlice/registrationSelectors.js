@@ -1,1 +1,1 @@
-export const getAuth = (state) => state.registrationReducer.isAuth;
+export const getAuth = (state) => state.registration.isAuth;
