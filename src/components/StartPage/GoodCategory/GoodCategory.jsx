@@ -38,7 +38,7 @@ export const GoodCategory = () => {
                                 hoverable
                                 style={{width: 200,}}
                                 cover={<img  alt="example" src={item.img}/>}>
-                                <Meta title={item.label} description={item.price} />
+                                <Meta title={item.label} description={item.price}/>
                             </Card>
                         ))}
                         </div>

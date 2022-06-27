@@ -1,7 +1,8 @@
 import {request} from './request'
 
 const host = '/api/goods';
-const hostCategories = '/api/popular_categories'
+const hostPopularCategories = '/api/popular_categories'
+const hostCategories = '/api/categories'
 
 export const getGoods = (categoryTypeId) => {
     const url = `${host}${categoryTypeId}`
@@ -9,5 +10,13 @@ export const getGoods = (categoryTypeId) => {
 }
 
 export const getPopularCategories = () => {
-    return request(`${hostCategories}`)
+    return request(`${hostPopularCategories}`)
+}
+
+export const getCategories = () => {
+    return request(`${hostCategories}?categoryTypeId=`)
+}
+
+export const getCategoriesById = (categoryTypeId) => {
+    return request(`${host}?categoryTypeId=${categoryTypeId}`)
 }
