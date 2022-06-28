@@ -26,7 +26,7 @@ export const MenuOriginal = () => {
                     return(
                         <MenuItem>
                             <Link to={i.id} className={css.title}>
-                                <div key={i.id} >{i.label}</div>
+                                <div>{i.label}</div>
                             </Link>
                         </MenuItem>
                     )
