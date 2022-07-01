@@ -24,9 +24,9 @@ export const MenuOriginal = () => {
             <Menu>
                 {categories.map((i) => {
                     return(
-                        <MenuItem>
+                        <MenuItem key={i.id}>
                             <Link to={i.id} className={css.title}>
-                                <div key={i.id} >{i.label}</div>
+                                <div>{i.label}</div>
                             </Link>
                         </MenuItem>
                     )

@@ -8,3 +8,4 @@ export const LOAD_STATUSES = {
 export const POPULAR_CATEGORIES = 'popularCategories'
 export const CATEGORIES = 'categories'
 export const CATEGORY_PAGE = 'categoriesPage'
+export const PRODUCT_PAGE = 'productPage'

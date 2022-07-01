@@ -16,10 +16,10 @@ export const Header = () => {
             <div>
                 {isAuth ? (
                     <div>
+                        <ShoppingOutlined />
                         <Link to={'/'}>
                             <button>exid</button>
                         </Link>
-                        <ShoppingOutlined />
                     </div>
                 ) : (
                     <Link to={'/login'}>

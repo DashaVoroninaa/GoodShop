@@ -24,7 +24,7 @@ export const CategoryPage = () => {
 
     useEffect(() => {
         getCategoryPage(categoryTypeId)
-    }, [])
+    }, [categoryTypeId])
 
     const navigate = useNavigate()
     const goBack = () => navigate(-1)
@@ -36,8 +36,8 @@ export const CategoryPage = () => {
             {isLoaded && (<div  className={css.main}>
                 {categoryPage.map((i) => (
                     <div>
-                        <Link to={`${categoryTypeId}/${i.id}`}>
-                            <Card 
+                        <Link to={`/${categoryTypeId}/${i.id}`}>
+                            <Card  
                                 className={css.card}
                                 hoverable
                                 style={{width: 200,}}

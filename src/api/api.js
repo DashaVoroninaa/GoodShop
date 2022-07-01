@@ -18,5 +18,9 @@ export const getCategories = () => {
 }
 
 export const getCategoriesById = (categoryTypeId) => {
-    return request(`${host}?categoryTypeId=${categoryTypeId}`)
+    return request(`${host}?categoryTypeIds=${categoryTypeId}`)
+}
+
+export const getProductById = (id) => {
+    return request(`${host}?ids=${id}`)
 }
