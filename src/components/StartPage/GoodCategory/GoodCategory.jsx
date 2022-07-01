@@ -29,7 +29,7 @@ export const GoodCategory = () => {
             {isLoaded && (<div>
                 {popularCategories.map((i) => {
                 return(
-                    <div>
+                    <div key={i.id}>
                         <h4>{i.category.label}</h4>
                         <div className={css.container}>
                         {i.items.map((item) => (

@@ -5,10 +5,9 @@ import { fetchProductPage } from "store/ProductPageSlice";
 import { ProductPageSelectors } from "store/ProductPageSlice";
 import { Loader } from "components/common";
 import { Card } from "antd"
+import css from './productPage.module.css'
 
 export const ProductPage = () => {
-
-    const {Meta} = Card
 
     const {id} = useParams()
 
@@ -29,18 +28,25 @@ export const ProductPage = () => {
     const goBack = () => navigate(-1)
 
     return (
-        <div>
+        <div className={css.wrapper}>
             {isLoading && <Loader/>}
-            {isError && <button onClick={() => goBack()}>Продукт не найден, вернуться назад</button>}
+            {isError && <button onClick={() => goBack()} className={css.button}>Продукт не найден, вернуться назад</button>}
             {isLoaded && (<div>
                 {productPage.map((i) => (
-                    <Card 
-                    
-                    hoverable
-                    style={{width: 200,}}
-                    cover={<img  alt="example" src={i.img}/>}>
-                    <Meta title={i.label} description={i.price}/>
-                </Card>
+                    <div  className={css.wrapper}>
+                        <Card className={css.card}
+                            key={i.id}
+                            title={i.label} 
+                            hoverable
+                            style={{width: 600,}}
+                            cover={<img  alt="example" src={i.img} className={css.img}/>}>
+                        </Card>
+                        <div className={css.information}>
+                            <span>{i.description}</span>
+                            <span>{i.price}</span>
+                            <button className={css.button}>Положить в корзину</button>
+                        </div>
+                    </div>
                 ))}
             </div>)}
         </div>
