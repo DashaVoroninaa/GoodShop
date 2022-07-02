@@ -4,35 +4,30 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { getSearch } from "api"
 import { useParams } from "react-router-dom"
+import { Input } from "./Input"
 import css from './goodSearch.module.css'
  
-const Input = ({value, onChange, options = [], onOptionClick}) => {
+const Search = ({options = [], onOptionClick}) => {
     
     const {categoryTypeId} = useParams()
 
-    const changeHandler = (e) => {
-        onChange(e.target.value, e)
-    }
-
     return (
-        <div>
-            <input value={value} onChange={changeHandler} type='text' placeholder='search...' className={css.search}/>
-            <ul>
-                {options.map((i) => {
-                    return (
-                        <Link key={i.id} to={`/${categoryTypeId}/${i.id}`} onClick={onOptionClick}>
-                            <li onClick={() => onOptionClick(i)}>{i.label}</li>
-                        </Link>
-                    )
-                })}
-            </ul>
-        </div>
+        <ul className={css.dataResult}>
+            {options ? options.map((i) => {
+                return (
+                    <Link key={i.id} to={`/${categoryTypeId}/${i.id}`} onClick={onOptionClick} className={css.title}>
+                        <li onClick={() => onOptionClick(i)} className={css.text}>{i.label}</li>
+                    </Link>
+                )
+            }) : <li className={css.title}>Ничего не найдено, попробуйте изменить запрос</li>}
+        </ul>
     )
 }
 
 export const GoodSearch = () => {
     const [value, setValue] = useState('')
     const [options, setOptions] = useState([])
+    const [menu, setMenu] = useState(false)
     const navigate = useNavigate()
     const {categoryTypeId} = useParams()
 
@@ -43,6 +38,9 @@ export const GoodSearch = () => {
     useEffect(() => {
         if(value.length > 2) {
             getSearchDebounced(value)
+            setMenu(true)
+        } else {
+            setMenu(false)
         }
     }, [value])
 
@@ -50,5 +48,10 @@ export const GoodSearch = () => {
         navigate(`/${categoryTypeId}/${i.id}`)
     }
 
-    return <Input value={value} onChange={setValue} options={options} onOptionClick={onOptionClick}/>
+    return (
+        <div>
+            <Input value={value} onChange={setValue}/>
+            {menu && <Search options={options} onOptionClick={onOptionClick}/>}
+        </div>
+    )
 }
