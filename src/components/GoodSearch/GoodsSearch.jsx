@@ -3,19 +3,16 @@ import { useCallback, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { getSearch } from "api"
-import { useParams } from "react-router-dom"
 import { Input } from "./Input"
 import css from './goodSearch.module.css'
  
 const Search = ({options = [], onOptionClick}) => {
-    
-    const {categoryTypeId} = useParams()
 
     return (
-        <ul className={css.dataResult}>
-            {options ? options.map((i) => {
+        <ul className={css.result}>
+            {options.length > 0 ? options.map((i) => {
                 return (
-                    <Link key={i.id} to={`/${categoryTypeId}/${i.id}`} onClick={onOptionClick} className={css.title}>
+                    <Link key={i.id} to={`/${i.categoryTypeId}/${i.id}`} onClick={onOptionClick} className={css.title}>
                         <li onClick={() => onOptionClick(i)} className={css.text}>{i.label}</li>
                     </Link>
                 )
@@ -29,11 +26,10 @@ export const GoodSearch = () => {
     const [options, setOptions] = useState([])
     const [menu, setMenu] = useState(false)
     const navigate = useNavigate()
-    const {categoryTypeId} = useParams()
 
     const getSearchDebounced = useCallback(debounce((value) => {
         getSearch(value).then((r) => setOptions(r.items))
-    }, 1500)) 
+    }, 1500), []) 
 
     useEffect(() => {
         if(value.length > 2) {
@@ -45,7 +41,7 @@ export const GoodSearch = () => {
     }, [value])
 
     const onOptionClick = (i) => {
-        navigate(`/${categoryTypeId}/${i.id}`)
+        navigate(`/${i.categoryTypeId}/${i.id}`)
     }
 
     return (
