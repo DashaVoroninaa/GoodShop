@@ -1,4 +1,24 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .title {
     color: black;
     text-decoration: none;
+} 
+
+.menu {
+    width: 230px;
+    padding-left: 10px;
+    margin-top: 5px;
+    list-style-type: none;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.category:hover {
+    background-color: lightgrey;
 }

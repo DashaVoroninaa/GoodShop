@@ -4,9 +4,8 @@ const host = '/api/goods';
 const hostPopularCategories = '/api/popular_categories'
 const hostCategories = '/api/categories'
 
-export const getGoods = (categoryTypeId) => {
-    const url = `${host}${categoryTypeId}`
-    return request(url)
+export const getSearch = (text) => {
+    return request(`${host}?text=${text}`);
 }
 
 export const getPopularCategories = () => {

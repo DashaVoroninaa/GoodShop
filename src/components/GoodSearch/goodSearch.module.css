@@ -1,0 +1,29 @@
+.search {
+    width: 250px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 11px;
+    outline: none;
+}
+
+.result {
+    position: absolute;
+    margin-top: 5px;
+    padding-left: 10px;
+    background: white;
+    width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid gray;
+}
+
+.title {
+    color: black;
+    font-size: 13px;
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.text:hover {
+    background-color: lightgrey;
+}

@@ -33,9 +33,8 @@ export const ProductPage = () => {
             {isError && <button onClick={() => goBack()} className={css.button}>Продукт не найден, вернуться назад</button>}
             {isLoaded && (<div>
                 {productPage.map((i) => (
-                    <div  className={css.wrapper}>
+                    <div key={i.id}  className={css.wrapper}>
                         <Card className={css.card}
-                            key={i.id}
                             title={i.label} 
                             hoverable
                             style={{width: 600,}}

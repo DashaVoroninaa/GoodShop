@@ -19,19 +19,22 @@ export const MenuOriginal = () => {
     }, [])
 
     return (
-        <div>
-            <span>Категории:</span>
-            <Menu>
-                {categories.map((i) => {
-                    return(
-                        <MenuItem key={i.id}>
-                            <Link to={i.id} className={css.title}>
-                                <div>{i.label}</div>
-                            </Link>
-                        </MenuItem>
-                    )
-                })}
-            </Menu>
+        <div className={css.wrapper}>
+            <div>
+                <span>Категории:</span>
+                <Menu  className={css.menu}>
+                    {categories.map((i) => {
+                        return(
+                            <MenuItem key={i.id}>
+                                <Link to={i.id} className={css.title}>
+                                    <div className={css.category}>{i.label}</div>
+                                </Link>
+                            </MenuItem>
+                        )   
+                    })}
+                </Menu>
+            </div>
+            <span className={css.text}>Здесь могла быть Ваша реклама:)</span>
         </div>
     )
 }

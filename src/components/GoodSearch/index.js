@@ -1,0 +1,1 @@
+export {GoodSearch} from './GoodsSearch'
