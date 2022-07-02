@@ -1,1 +1,1 @@
-export {GoodSearch} from './GoodSearch'
+export {GoodSearch} from './GoodsSearch'

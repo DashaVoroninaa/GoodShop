@@ -16,7 +16,7 @@ const Input = ({value, onChange, options = [], onOptionClick}) => {
 
     return (
         <div>
-            <input value={value} onChange={changeHandler} type='text'placeholder='search...' className={css.search}/>
+            <input value={value} onChange={changeHandler} type='text' placeholder='search...' className={css.search}/>
             <ul>
                 {options.map((i) => {
                     return (
@@ -37,7 +37,7 @@ export const GoodSearch = () => {
     const {categoryTypeId} = useParams()
 
     const getSearchDebounced = useCallback(debounce((value) => {
-        getSearch(value).then((r) => setOptions(r.data))
+        getSearch(value).then((r) => setOptions(r.items))
     }, 1500)) 
 
     useEffect(() => {
