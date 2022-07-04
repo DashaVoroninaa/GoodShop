@@ -1,1 +1,1 @@
-export {getPopularCategories, getCategories, getCategoriesById, getProductById, getSearch} from './api'
+export {getPopularCategories, getCategories, getCategoriesById, getProductById, getSearch, getAllCategories} from './api'

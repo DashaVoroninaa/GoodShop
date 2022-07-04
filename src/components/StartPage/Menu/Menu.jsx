@@ -5,6 +5,7 @@ import { fetchCategories } from "store/categorySlice"
 import { Link } from "react-router-dom"
 import { Menu } from "antd"
 import MenuItem from "antd/lib/menu/MenuItem"
+
 import css from './menu.module.css'
 
 export const MenuOriginal = () => {
@@ -34,7 +35,7 @@ export const MenuOriginal = () => {
                     })}
                 </Menu>
             </div>
-            <span className={css.text}>Здесь могла быть Ваша реклама:)</span>
+            <img src="/img/photo.jpg" alt=""/>
         </div>
     )
 }

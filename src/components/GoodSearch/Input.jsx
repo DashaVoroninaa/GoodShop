@@ -4,6 +4,7 @@ export const Input = ({value, onChange}) => {
     
     const changeHandler = (e) => {
         onChange(e.target.value, e)
+        
     }
 
     return (

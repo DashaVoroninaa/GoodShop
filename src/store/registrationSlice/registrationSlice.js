@@ -11,5 +11,10 @@ export const { actions, reducer } = createSlice({
         isAuth: true,
       };
     },
+    getsAuth: () => {
+      return {
+        isAuth: false
+      }
+    }
   },
 });
