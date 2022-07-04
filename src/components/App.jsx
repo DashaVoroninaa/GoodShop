@@ -8,6 +8,7 @@ import { useSelector } from "react-redux"
 import { GoodsSelectors } from "store/registrationSlice"
 import { CategoryPage } from "./CategoryPage/CategoryPage"
 import { ProductPage } from "./ProductPage"
+import { Cart } from "./Cart"
 import './style.css'
 
 export function App () {
@@ -21,6 +22,7 @@ export function App () {
         <Route path="/regestration" exact element={<Registration/>}/>
         <Route path='/:categoryTypeId' exact element={<CategoryPage/> }/>
         <Route path='/:categoryTypeId/:id' exact element={<ProductPage/> }/>
+        <Route path="/cart" exact element={<Cart/>}/>
       </Routes> 
       <Footer/>
         </>

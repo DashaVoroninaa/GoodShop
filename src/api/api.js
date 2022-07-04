@@ -23,3 +23,7 @@ export const getCategoriesById = (categoryTypeId) => {
 export const getProductById = (id) => {
     return request(`${host}?ids=${id}`)
 }
+
+export const getAllCategories = () => {
+    return request(`${host}`)
+}

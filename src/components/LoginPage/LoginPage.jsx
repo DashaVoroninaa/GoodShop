@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from 'yup'
 
+import { MyTextField } from "components/RegistrationPage/MyTextField";
+import css from './loginPage.module.css'
+
 export const LoginPage = () => {
 
   const logValidate = yup.object().shape({
@@ -10,7 +13,7 @@ export const LoginPage = () => {
   })
 
   return (
-    <div>
+    <div className={css.container}>
       <Formik
       initialValues = {{
         login: '',
@@ -20,39 +23,22 @@ export const LoginPage = () => {
       onSubmit={(values) => {console.log(values)}}
       validationSchema={logValidate}
       >
-      {({values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
-        <form action="">
-          <p>
-          <label htmlFor={`login`}>Логин</label>
-            <input type="text"
-            name={`login`}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.login}/>
-          </p>
-          {touched.login && errors.login && <p>{errors.login}</p>}
-          
-          <p>
-          <label htmlFor={`password`}>Пароль</label>
-            <input type={`text`}
-            name={`password`}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}/>
-          </p>
-          {touched.password && errors.password && <p>{errors.password}</p>}
-        
-        
-          <button
-          disabled={!isValid && !dirty}
-          onClick={handleSubmit}
-          type={`submit`}
-          >Войти</button>
-          <Link to='/regestration'>
-            <button>Зарегистрироваться</button>
-          </Link>
-        
-      </form>
+      {({isValid, handleSubmit, dirty }) => (
+        <form className={css.wrapper}>
+          <MyTextField name='login' type='email' label='Логин'/>
+          <MyTextField name='password' type='password' label='Пароль'/>
+          <div className={css.buttons}>
+            <button
+              disabled={!isValid && !dirty}
+              onClick={handleSubmit}
+              type={`submit`}
+              className={css.button}
+            >Войти</button>
+            <Link to='/regestration'>
+              <button className={css.button}>Зарегистрироваться</button>
+            </Link>
+          </div>
+        </form>
       )}
   </Formik>
     </div>
