@@ -22,3 +22,7 @@
 .category:hover {
     background-color: #edede9;
 }
+
+.img {
+    width: 300px;
+}

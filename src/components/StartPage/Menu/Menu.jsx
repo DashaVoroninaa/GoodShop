@@ -35,7 +35,7 @@ export const MenuOriginal = () => {
                     })}
                 </Menu>
             </div>
-            <img src="/img/photo.jpg" alt=""/>
+            <img src="/img/photo.jpg" alt="" className={css.img}/>
         </div>
     )
 }

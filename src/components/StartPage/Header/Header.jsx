@@ -1,5 +1,5 @@
 import css from './header.module.css'
-import {ShoppingOutlined, UserOutlined} from '@ant-design/icons'
+import {ShoppingOutlined} from '@ant-design/icons'
 import { Link, useNavigate  } from "react-router-dom"
 import { GoodsSelectors } from 'store/registrationSlice'
 import { useSelector } from 'react-redux'
@@ -33,7 +33,7 @@ export const Header = () => {
                             <ShoppingOutlined />
                         </Link>
                         <Link to={'/'}>
-                            <button onClick={exidButton}>exid</button>
+                            <button onClick={exidButton} className={css.button}>Выход</button>
                         </Link>
                     </div>
                 ) : (

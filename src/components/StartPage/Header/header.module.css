@@ -7,3 +7,12 @@
     color: black;
     text-decoration: none;
 }
+
+.button {
+    height: 30px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+}
