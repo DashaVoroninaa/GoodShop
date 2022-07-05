@@ -19,10 +19,10 @@ export function App () {
       <Routes>
         <Route path='/' exact element={<MainPage/> }/>
         {!isAuth && <Route path='/login' exact element={<LoginPage/>}/>}
-        <Route path="/regestration" exact element={<Registration/>}/>
+        <Route path='/regestration' exact element={<Registration/>}/>
         <Route path='/:categoryTypeId' exact element={<CategoryPage/> }/>
         <Route path='/:categoryTypeId/:id' exact element={<ProductPage/> }/>
-        <Route path="/cart" exact element={<Cart/>}/>
+        <Route path='/cart' exact element={<Cart/>}/>
       </Routes> 
       <Footer/>
         </>
